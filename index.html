@@ -391,7 +391,7 @@
       if (!asset) return;
       release = {
         version: j.tag_name.replace(/^v/, ''),
-        mb: Math.round(asset.size / (1024 * 1024)),
+        mb: Math.round(asset.size / 1e6),
         date: new Date(j.published_at)
       };
       paint();
