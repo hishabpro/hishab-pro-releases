@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="bn" data-lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>হিসাব প্রো — দোকানের হিসাব, ফোনেই | Hishab PRO</title>
+<meta name="description" content="হিসাব প্রো: বাংলাদেশের দোকানের জন্য বিক্রি, স্টক, বাকির খাতা আর রিপোর্ট — এক অ্যাপে, ইন্টারনেট ছাড়াও চলে। Hishab PRO: sales, stock, khata and reports for shops in Bangladesh. Works offline.">
+<meta property="og:title" content="হিসাব প্রো — Hishab PRO">
+<meta property="og:description" content="দোকানের বিক্রি, স্টক, বাকির খাতা আর রিপোর্ট — এক অ্যাপে। Android অ্যাপ ডাউনলোড করুন।">
+<meta property="og:image" content="https://arfin312-art.github.io/hishab-pro-releases/assets/icon.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E5A44">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Noto+Sans+Bengali:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0E5A44;
+    --green-deep: #0A4434;
+    --green-soft: #1C6651;
+    --cream: #FBF5E6;
+    --paper: #F6F8FB;
+    --card: #FFFFFF;
+    --ink: #0B1120;
+    --ink-soft: #475569;
+    --rim: #DCE3EC;
+    --mint: #CEE3DE;
+    --mint-ink: #185141;
+    --dot: #E8422F;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", "Noto Sans Bengali", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  html[data-lang="bn"] [data-l="en"], html[data-lang="en"] [data-l="bn"] { display: none !important; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { line-height: 1.25; margin: 0; font-weight: 800; text-wrap: balance; }
+  p { margin: 0; }
+
+  /* ---- top bar ---- */
+  .top { background: var(--green); color: var(--cream); }
+  .top .wrap { display: flex; align-items: center; gap: 12px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; text-decoration: none; margin-right: auto; }
+  .brand img { width: 36px; height: 36px; border-radius: 10px; }
+  .lang { display: flex; background: rgba(251,245,230,.14); border-radius: 999px; padding: 3px; }
+  .lang button {
+    font: inherit; font-size: 14px; font-weight: 700; color: var(--cream);
+    background: none; border: 0; border-radius: 999px; padding: 7px 14px; cursor: pointer; min-height: 36px;
+  }
+  .lang button[aria-pressed="true"] { background: var(--cream); color: var(--green-deep); }
+  .lang button:focus-visible, .btn:focus-visible { outline: 3px solid var(--dot); outline-offset: 2px; }
+
+  /* ---- hero ---- */
+  .hero { background: var(--green); color: var(--cream); overflow: hidden; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: center; padding-top: 36px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 58px); letter-spacing: -.01em; }
+  .hero h1 .dot { color: var(--dot); }
+  .hero .lead { margin-top: 16px; font-size: clamp(17px, 2.2vw, 20px); color: rgba(251,245,230,.88); max-width: 34em; }
+  .cta { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--cream); color: var(--green-deep);
+    font-weight: 800; font-size: 18px; text-decoration: none;
+    padding: 15px 24px; border-radius: 16px; min-height: 56px;
+    box-shadow: 0 6px 0 rgba(0,0,0,.22);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 7px 0 rgba(0,0,0,.22); }
+  .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.22); }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn.green { background: var(--green); color: var(--cream); box-shadow: 0 6px 0 var(--green-deep); }
+  .meta { font-size: 14.5px; color: rgba(251,245,230,.8); }
+  .meta b { color: var(--cream); font-weight: 700; }
+  .hero-points { margin: 26px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-points li { background: rgba(251,245,230,.12); border: 1px solid rgba(251,245,230,.22); border-radius: 999px; padding: 6px 14px; font-size: 14.5px; font-weight: 500; }
+  .hero-phone { align-self: end; justify-self: center; width: min(300px, 78vw); margin-bottom: -70px; }
+
+  .phone { background: #0B1120; border-radius: 34px; padding: 9px; box-shadow: 0 24px 50px rgba(4,30,22,.45); }
+  .phone img { border-radius: 26px; width: 100%; height: auto; aspect-ratio: 640 / 1387; background: var(--paper); }
+
+  /* ---- sections ---- */
+  section { padding: 64px 0; }
+  .after-hero { padding-top: 110px; }
+  .eyebrow { color: var(--green-soft); font-weight: 800; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+  html[data-lang="bn"] .eyebrow { letter-spacing: 0; font-size: 15px; }
+  h2 { font-size: clamp(26px, 4vw, 38px); margin-top: 6px; }
+  .sub { color: var(--ink-soft); margin-top: 10px; max-width: 40em; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+  .card { background: var(--card); border: 1px solid var(--rim); border-radius: var(--radius); padding: 22px; }
+  .card h3 { font-size: 19px; }
+  .card p { color: var(--ink-soft); margin-top: 6px; font-size: 16px; }
+  .ico { width: 46px; height: 46px; border-radius: 14px; background: var(--mint); color: var(--mint-ink); display: grid; place-items: center; margin-bottom: 14px; }
+  .ico svg { width: 24px; height: 24px; }
+
+  /* ---- screenshots ---- */
+  .shots-band { background: linear-gradient(180deg, #E9F1EE, var(--paper)); }
+  .shots { display: flex; gap: 22px; overflow-x: auto; padding: 30px 20px 26px; margin: 0 -20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .shots figure { margin: 0; flex: 0 0 auto; width: 232px; scroll-snap-align: center; }
+  .shots figcaption { text-align: center; margin-top: 14px; font-weight: 700; font-size: 15.5px; }
+  .shots figcaption span { display: block; font-weight: 400; color: var(--ink-soft); font-size: 14.5px; }
+
+  /* ---- shop types ---- */
+  .types { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+  .type { display: flex; gap: 16px; align-items: flex-start; }
+  .type .ico { margin: 0; flex: none; }
+  .type h3 { font-size: 18.5px; }
+  .type p { margin-top: 4px; }
+
+  /* ---- install ---- */
+  .install { background: var(--green); color: var(--cream); border-radius: 28px; padding: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+  .install h2 { margin-top: 0; }
+  .install .sub { color: rgba(251,245,230,.85); }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 14px; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+  .steps li::before { content: counter(s); width: 40px; height: 40px; border-radius: 50%; background: var(--cream); color: var(--green-deep); font-weight: 800; display: grid; place-items: center; font-family: "DM Sans", sans-serif; }
+  html[data-lang="bn"] .steps li::before { content: counter(s, bengali); font-family: "Noto Sans Bengali", sans-serif; }
+  .steps b { display: block; }
+  .steps span.t { color: rgba(251,245,230,.85); font-size: 16px; }
+  .note { margin-top: 18px; background: rgba(251,245,230,.1); border: 1px solid rgba(251,245,230,.22); border-radius: 16px; padding: 14px 16px; font-size: 15.5px; }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+  .fact { background: var(--card); border: 1px solid var(--rim); border-radius: 18px; padding: 16px 18px; }
+  .fact small { color: var(--ink-soft); display: block; font-size: 14px; }
+  .fact b { font-size: 18px; font-variant-numeric: tabular-nums; }
+
+  footer { border-top: 1px solid var(--rim); padding: 28px 0 40px; color: var(--ink-soft); font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between; }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; padding-top: 26px; }
+    .hero-phone { margin-top: 10px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .install { grid-template-columns: 1fr; padding: 26px 20px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16.5px; }
+    .grid, .types { grid-template-columns: 1fr; }
+    section { padding: 48px 0; }
+    .after-hero { padding-top: 100px; }
+    .btn { width: 100%; justify-content: center; }
+    .brand span { font-size: 17px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/icon.png" alt="" width="36" height="36">
+      <span data-l="bn">হিসাব প্রো</span><span data-l="en">Hishab PRO</span>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set="bn" aria-pressed="true">বাংলা</button>
+      <button type="button" data-set="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>
+          <span data-l="bn">দোকানের হিসাব, ফোনেই<span class="dot">।</span></span>
+          <span data-l="en">Your shop's accounts, on your phone<span class="dot">.</span></span>
+        </h1>
+        <p class="lead">
+          <span data-l="bn">হিসাব প্রো দিয়ে বিক্রি, স্টক, বাকির খাতা আর দিনের রিপোর্ট — সব এক অ্যাপে। ইন্টারনেট না থাকলেও বিক্রি থামে না।</span>
+          <span data-l="en">Hishab PRO keeps your sales, stock, credit book and daily reports in one app. No internet? You keep selling.</span>
+        </p>
+        <div class="cta">
+          <a class="btn" id="dl-hero" href="https://github.com/arfin312-art/hishab-pro-releases/releases/latest/download/hishab-pro.apk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16"/></svg>
+            <span data-l="bn">অ্যাপ ডাউনলোড করুন</span><span data-l="en">Download the app</span>
+          </a>
+          <p class="meta">
+            <span data-l="bn">Android-এর জন্য · <b class="v-ver">সর্বশেষ সংস্করণ</b><span class="v-size"></span></span>
+            <span data-l="en">For Android · <b class="v-ver">latest version</b><span class="v-size"></span></span>
+          </p>
+        </div>
+        <ul class="hero-points">
+          <li><span data-l="bn">ইন্টারনেট ছাড়াও চলে</span><span data-l="en">Works offline</span></li>
+          <li><span data-l="bn">বাংলা ও ইংরেজি</span><span data-l="en">Bangla and English</span></li>
+          <li><span data-l="bn">৭ ধরনের দোকান</span><span data-l="en">7 kinds of shop</span></li>
+        </ul>
+      </div>
+      <div class="hero-phone phone">
+        <img src="assets/till.webp" width="640" height="1387" alt="হিসাব প্রো-র বিক্রির পর্দা: চিনি, ডিম আর চাল কার্টে, মোট ২১৯.৫০ টাকা। The Hishab PRO sell screen with three items in the cart.">
+      </div>
+    </div>
+  </div>
+
+  <section class="after-hero">
+    <div class="wrap">
+      <p class="eyebrow"><span data-l="bn">কী কী করা যায়</span><span data-l="en">What it does</span></p>
+      <h2><span data-l="bn">দোকান চালাতে যা লাগে, সব এক জায়গায়</span><span data-l="en">Everything the counter needs, in one place</span></h2>
+      <div class="grid">
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h2l2.2 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg></div>
+          <h3><span data-l="bn">দ্রুত বিক্রি</span><span data-l="en">Fast selling</span></h3>
+          <p><span data-l="bn">বারকোড স্ক্যান করুন বা নাম খুঁজুন, বিল করুন, রসিদ প্রিন্ট করুন অথবা হোয়াটসঅ্যাপ ও এসএমএসে পাঠান।</span><span data-l="en">Scan a barcode or search by name, take payment, then print the receipt or send it by WhatsApp or SMS.</span></p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg></div>
+          <h3><span data-l="bn">স্টকের হিসাব</span><span data-l="en">Stock control</span></h3>
+          <p><span data-l="bn">কোন পণ্য কত আছে, কোনটা কমে এসেছে, কোনটার মেয়াদ শেষ হচ্ছে — এক নজরে।</span><span data-l="en">See what is on the shelf, what is running low and what is close to expiry.</span></p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M9 9h6M9 13h6"/></svg></div>
+          <h3><span data-l="bn">বাকির খাতা</span><span data-l="en">Credit book (khata)</span></h3>
+          <p><span data-l="bn">কাস্টমার ও সাপ্লায়ারের পাওনা-দেনা, তারিখসহ। বাকি আদায়ের জন্য মনে করিয়ে দেওয়ার মেসেজ।</span><span data-l="en">Who owes you and whom you owe, with due dates. Send reminders to collect.</span></p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg></div>
+          <h3><span data-l="bn">রিপোর্ট ও খরচ</span><span data-l="en">Reports and expenses</span></h3>
+          <p><span data-l="bn">দিনের বিক্রি, খরচ আর লাভ। সপ্তাহ, মাস বা বছরের হিসাব আগের সময়ের সাথে মিলিয়ে দেখুন।</span><span data-l="en">Daily takings, expenses and profit. Compare a week, month or year with the one before.</span></p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3 3-4.6 6-4.6s5.4 1.600 6 4.600"/><path d="M16 5.200a3 3 0 0 1 0 5.600M18 14.800c1.600.600 2.600 2 3 4.200"/></svg></div>
+          <h3><span data-l="bn">কর্মচারী ও পিন</span><span data-l="en">Staff and PINs</span></h3>
+          <p><span data-l="bn">প্রত্যেক কর্মচারীর আলাদা পিন। কে কী করতে পারবে মালিক ঠিক করেন, আর কে কী করেছে তার রেকর্ড থাকে।</span><span data-l="en">Each staff member has a PIN. The owner decides what they can do, and every action is logged.</span></p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.500 4.500 0 0 1-.6-8.960A6 6 0 0 1 18 10.500 3.800 3.800 0 0 1 17.500 18z"/><path d="M12 11v5m0-5-2 2m2-2 2 2"/></svg></div>
+          <h3><span data-l="bn">ব্যাকআপ</span><span data-l="en">Backup</span></h3>
+          <p><span data-l="bn">ইন্টারনেট পেলেই দোকানের হিসাব ক্লাউডে জমা হয়। ফোন হারালে নতুন ফোনে রিস্টোর পাসওয়ার্ড দিয়ে ফিরিয়ে আনুন।</span><span data-l="en">Your records back up to the cloud whenever there is a connection. Lose the phone and restore on a new one with your restore password.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shots-band">
+    <div class="wrap">
+      <p class="eyebrow"><span data-l="bn">অ্যাপের ভেতরে</span><span data-l="en">Inside the app</span></p>
+      <h2><span data-l="bn">দেখতে যেমন</span><span data-l="en">What it looks like</span></h2>
+      <div class="shots" tabindex="0" role="group" aria-label="Screenshots">
+        <figure><div class="phone"><img loading="lazy" src="assets/stock.webp" width="640" height="1387" alt="স্টকের পর্দা: পণ্যের তালিকা, দাম ও পরিমাণ। The stock screen listing products with prices and quantities."></div>
+          <figcaption><span data-l="bn">স্টক</span><span data-l="en">Stock</span><span><span data-l="bn">পণ্য, দাম, মেয়াদ</span><span data-l="en">Products, prices, expiry</span></span></figcaption></figure>
+        <figure><div class="phone"><img loading="lazy" src="assets/restaurant.webp" width="640" height="1387" alt="রেস্টুরেন্টের টেবিলের পর্দা: একসাথে করা টেবিল একই রঙে। Restaurant tables, with joined tables sharing a colour."></div>
+          <figcaption><span data-l="bn">রেস্টুরেন্ট</span><span data-l="en">Restaurant</span><span><span data-l="bn">টেবিল ও অর্ডার</span><span data-l="en">Tables and orders</span></span></figcaption></figure>
+        <figure><div class="phone"><img loading="lazy" src="assets/pharmacy.webp" width="640" height="1387" alt="ফার্মেসির ওষুধের তালিকায় নাপা খোঁজা হয়েছে। The pharmacy medicine list, searched for Napa."></div>
+          <figcaption><span data-l="bn">ফার্মেসি</span><span data-l="en">Pharmacy</span><span><span data-l="bn">তৈরি ওষুধের তালিকা</span><span data-l="en">Ready medicine list</span></span></figcaption></figure>
+        <figure><div class="phone"><img loading="lazy" src="assets/more.webp" width="640" height="1387" alt="আরও মেনু: রিপোর্ট, খরচ, কর্মচারী ও সেটিংস। The More menu with reports, expenses, staff and settings."></div>
+          <figcaption><span data-l="bn">আরও</span><span data-l="en">More</span><span><span data-l="bn">রিপোর্ট, খরচ, সেটিংস</span><span data-l="en">Reports, expenses, settings</span></span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow"><span data-l="bn">কোন দোকানের জন্য</span><span data-l="en">Who it is for</span></p>
+      <h2><span data-l="bn">আপনার দোকানের ধরন অনুযায়ী সাজানো</span><span data-l="en">Set up for your kind of shop</span></h2>
+      <p class="sub"><span data-l="bn">শুরুতে দোকানের ধরন বেছে নিন। যে সুবিধা আপনার দরকার নেই, সেটা পর্দায় আসবেই না।</span><span data-l="en">Pick your shop type when you start. Features you do not need never appear on screen.</span></p>
+      <div class="types">
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.200 10H6.200z"/><path d="M9 9a3 3 0 0 1 6 0"/></svg></div>
+          <div><h3><span data-l="bn">মুদি দোকান</span><span data-l="en">Grocery</span></h3><p><span data-l="bn">কেজি-লিটারে বিক্রি, পাইকারি দাম, মেয়াদের তারিখ।</span><span data-l="en">Sell by weight or volume, wholesale prices, expiry dates.</span></p></div></div>
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.900 9.900 4.200 4.200"/></svg></div>
+          <div><h3><span data-l="bn">ফার্মেসি</span><span data-l="en">Pharmacy</span></h3><p><span data-l="bn">২৪,০০০+ ওষুধের তৈরি তালিকা, পাতা ও ট্যাবলেটে বিক্রি, প্রেসক্রিপশনের ছবি।</span><span data-l="en">A ready list of 24,000+ medicines, sell by strip or tablet, prescription photos.</span></p></div></div>
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 2 2v8M5 3v5m4-5v5M17 3c-2 1.500-3 4-3 7h3zm0 0v18"/></svg></div>
+          <div><h3><span data-l="bn">রেস্টুরেন্ট ও খাবারের দোকান</span><span data-l="en">Restaurant and food shop</span></h3><p><span data-l="bn">টেবিল, রান্নাঘরের টিকিট, পার্সেল, ওয়েটারের ফোন থেকে অর্ডার।</span><span data-l="en">Tables, kitchen tickets, parcels, and orders from a waiter's phone.</span></p></div></div>
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.200"/><path d="M11 17.500h2"/></svg></div>
+          <div><h3><span data-l="bn">ইলেকট্রনিক্স ও মোবাইল</span><span data-l="en">Electronics and mobile</span></h3><p><span data-l="bn">সিরিয়াল ও আইএমইআই নম্বর, ওয়ারেন্টি, কিস্তিতে বিক্রি।</span><span data-l="en">Serial and IMEI numbers, warranty, sales on instalments (kisti).</span></p></div></div>
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4-3a4 4 0 0 1-8 0z"/></svg></div>
+          <div><h3><span data-l="bn">কাপড় ও পোশাক</span><span data-l="en">Clothing and textile</span></h3><p><span data-l="bn">একই পণ্যের সাইজ ও রঙ আলাদা করে স্টক রাখুন।</span><span data-l="en">Keep stock by size and colour for the same product.</span></p></div></div>
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.500 5.500a4 4 0 0 0-5.300 5.300L4 16v4h4l5.200-5.200a4 4 0 0 0 5.300-5.300L16 12l-4-4z"/></svg></div>
+          <div><h3><span data-l="bn">হার্ডওয়্যার</span><span data-l="en">Hardware</span></h3><p><span data-l="bn">ঠিকাদারের সাইট অনুযায়ী খাতা, চেকের হিসাব, পরে ডেলিভারি।</span><span data-l="en">Accounts per contractor site, cheques, and goods delivered later.</span></p></div></div>
+        <div class="card type"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.500" r="1.800"/><circle cx="17" cy="17.500" r="1.800"/></svg></div>
+          <div><h3><span data-l="bn">অনলাইন শপ (এফ-কমার্স)</span><span data-l="en">Online shop (F-commerce)</span></h3><p><span data-l="bn">অর্ডার নেওয়া, কুরিয়ারে পাঠানো, ক্যাশ অন ডেলিভারির হিসাব মেলানো।</span><span data-l="en">Take orders, send by courier, and settle cash-on-delivery payouts.</span></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="install">
+        <div>
+          <h2><span data-l="bn">ইনস্টল করবেন যেভাবে</span><span data-l="en">How to install</span></h2>
+          <p class="sub"><span data-l="bn">অ্যাপটি এই ওয়েবসাইট থেকে সরাসরি নামাতে হয়, প্লে স্টোর থেকে নয়। তাই প্রথমবার ফোন একবার অনুমতি চাইবে।</span><span data-l="en">The app comes straight from this website, not the Play Store, so your phone asks for permission once.</span></p>
+          <div class="cta">
+            <a class="btn" id="dl-main" href="https://github.com/arfin312-art/hishab-pro-releases/releases/latest/download/hishab-pro.apk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16"/></svg>
+              <span data-l="bn">APK ডাউনলোড করুন</span><span data-l="en">Download the APK</span>
+            </a>
+          </div>
+          <p class="note">
+            <span data-l="bn">একবার ইনস্টল করলে নতুন সংস্করণ অ্যাপের ভেতর থেকেই পাওয়া যায় — আবার এখানে আসতে হবে না।</span>
+            <span data-l="en">After the first install, new versions arrive inside the app. You will not need to come back here.</span>
+          </p>
+        </div>
+        <ol class="steps">
+          <li><div><b><span data-l="bn">ডাউনলোড করুন</span><span data-l="en">Download</span></b><span class="t"><span data-l="bn">উপরের বোতামে চাপ দিন। ফাইলটি প্রায় ১০৫ এমবি, তাই ওয়াই-ফাই হলে ভালো।</span><span data-l="en">Tap the button. The file is about 105 MB, so Wi-Fi is best.</span></span></div></li>
+          <li><div><b><span data-l="bn">ফাইলটি খুলুন</span><span data-l="en">Open the file</span></b><span class="t"><span data-l="bn">ডাউনলোড শেষ হলে নোটিফিকেশন থেকে বা Downloads ফোল্ডার থেকে hishab-pro.apk খুলুন।</span><span data-l="en">When it finishes, open hishab-pro.apk from the notification or your Downloads folder.</span></span></div></li>
+          <li><div><b><span data-l="bn">অনুমতি দিন</span><span data-l="en">Allow the install</span></b><span class="t"><span data-l="bn">ফোন জিজ্ঞেস করলে Settings-এ গিয়ে "Allow from this source" চালু করুন, তারপর ফিরে এসে Install চাপুন।</span><span data-l="en">If your phone asks, go to Settings, turn on "Allow from this source", come back and tap Install.</span></span></div></li>
+          <li><div><b><span data-l="bn">অ্যাপ খুলে লগইন করুন</span><span data-l="en">Open and sign in</span></b><span class="t"><span data-l="bn">গুগল অ্যাকাউন্ট বা মোবাইল নম্বর দিয়ে লগইন করে দোকানের ধরন বেছে নিন।</span><span data-l="en">Sign in with your Google account or mobile number, then pick your shop type.</span></span></div></li>
+        </ol>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><small><span data-l="bn">সর্বশেষ সংস্করণ</span><span data-l="en">Latest version</span></small><b class="v-num">—</b></div>
+        <div class="fact"><small><span data-l="bn">প্রকাশের তারিখ</span><span data-l="en">Released</span></small><b class="v-date">—</b></div>
+        <div class="fact"><small><span data-l="bn">ফাইলের আকার</span><span data-l="en">Download size</span></small><b class="v-mb">≈ 105 MB</b></div>
+        <div class="fact"><small><span data-l="bn">যে ফোনে চলবে</span><span data-l="en">Works on</span></small><b><span data-l="bn">Android ৭.০ বা নতুন</span><span data-l="en">Android 7.0 or newer</span></b></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span data-l="bn">হিসাব প্রো — বাংলাদেশের দোকানের জন্য তৈরি।</span><span data-l="en">Hishab PRO — made for shops in Bangladesh.</span></span>
+    <a href="https://github.com/arfin312-art/hishab-pro-releases/releases"><span data-l="bn">সব সংস্করণ</span><span data-l="en">All versions</span></a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var bnDigits = '০১২৩৪৫৬৭৮৯';
+  function bn(s) { return String(s).replace(/[0-9]/g, function (d) { return bnDigits[+d]; }); }
+  var release = null;
+
+  function paint() {
+    var lang = root.getAttribute('data-lang');
+    root.lang = lang;
+    document.title = lang === 'bn'
+      ? 'হিসাব প্রো — দোকানের হিসাব, ফোনেই | Hishab PRO'
+      : 'Hishab PRO — your shop\'s accounts, on your phone';
+    var buttons = document.querySelectorAll('.lang button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('aria-pressed', String(buttons[i].getAttribute('data-set') === lang));
+    }
+    if (!release) return;
+    var num = lang === 'bn' ? bn(release.version) : release.version;
+    var mb = lang === 'bn' ? bn(release.mb) + ' এমবি' : release.mb + ' MB';
+    var date = release.date.toLocaleDateString(lang === 'bn' ? 'bn-BD' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    each('.v-ver', (lang === 'bn' ? 'সংস্করণ ' : 'version ') + num);
+    each('.v-size', ' · ' + mb);
+    each('.v-num', num);
+    each('.v-mb', mb);
+    each('.v-date', date);
+  }
+  function each(sel, text) {
+    var els = document.querySelectorAll(sel);
+    for (var i = 0; i < els.length; i++) els[i].textContent = text;
+  }
+  function setLang(lang) {
+    root.setAttribute('data-lang', lang);
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    paint();
+  }
+
+  var want = null;
+  var m = /[?&]lang=(bn|en)\b/.exec(location.search);
+  if (m) want = m[1];
+  if (!want) { try { want = localStorage.getItem('lang'); } catch (e) {} }
+  if (want === 'en' || want === 'bn') root.setAttribute('data-lang', want);
+
+  var buttons = document.querySelectorAll('.lang button');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () { setLang(this.getAttribute('data-set')); });
+  }
+  paint();
+
+  // The newest release, for the version, date and size on the page. The
+  // download buttons do not depend on it: they already point at the latest.
+  fetch('https://api.github.com/repos/arfin312-art/hishab-pro-releases/releases/latest')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) {
+      if (!j || !j.tag_name) return;
+      var asset = null;
+      for (var i = 0; i < (j.assets || []).length; i++) {
+        if (j.assets[i].name === 'hishab-pro.apk') asset = j.assets[i];
+      }
+      if (!asset) return;
+      release = {
+        version: j.tag_name.replace(/^v/, ''),
+        mb: Math.round(asset.size / (1024 * 1024)),
+        date: new Date(j.published_at)
+      };
+      paint();
+    })
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>
