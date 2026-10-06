@@ -2,9 +2,9 @@
 
 The public home of Hishab PRO, the shop app for Bangladesh.
 
-- **Website:** https://arfin312-art.github.io/hishab-pro-releases/
+- **Website:** https://hishabpro.github.io/hishab-pro-releases/
 - **Download the latest Android app:**
-  https://github.com/arfin312-art/hishab-pro-releases/releases/latest/download/hishab-pro.apk
+  https://github.com/hishabpro/hishab-pro-releases/releases/latest/download/hishab-pro.apk
 
 This repository holds the website (`index.html`, `assets/`) and the release
 files (APKs, under Releases). There is no source code here.

@@ -7,9 +7,10 @@
 <meta name="description" content="হিসাব প্রো: বাংলাদেশের দোকানের জন্য বিক্রি, স্টক, বাকির খাতা আর রিপোর্ট — এক অ্যাপে, ইন্টারনেট ছাড়াও চলে। Hishab PRO: sales, stock, khata and reports for shops in Bangladesh. Works offline.">
 <meta property="og:title" content="হিসাব প্রো — Hishab PRO">
 <meta property="og:description" content="দোকানের বিক্রি, স্টক, বাকির খাতা আর রিপোর্ট — এক অ্যাপে। Android অ্যাপ ডাউনলোড করুন।">
-<meta property="og:image" content="https://arfin312-art.github.io/hishab-pro-releases/assets/icon.png">
+<meta property="og:image" content="https://hishabpro.github.io/hishab-pro-releases/assets/icon.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0E5A44">
+<link rel="canonical" href="https://hishabpro.github.io/hishab-pro-releases/">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,6 +130,33 @@
   .steps span.t { color: rgba(251,245,230,.85); font-size: 16px; }
   .note { margin-top: 18px; background: rgba(251,245,230,.1); border: 1px solid rgba(251,245,230,.22); border-radius: 16px; padding: 14px 16px; font-size: 15.5px; }
 
+  /* ---- pricing ---- */
+  .offer { margin-top: 22px; background: #FBEFD9; border: 1px solid #F1D6A6; color: #7A3A0B; border-radius: 18px; padding: 14px 18px; font-weight: 700; }
+  .offer small { display: block; font-weight: 400; font-size: 15px; margin-top: 2px; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; align-items: start; }
+  .plan { background: var(--card); border: 1px solid var(--rim); border-radius: var(--radius); padding: 22px; position: relative; }
+  .plan.best { background: var(--green); color: var(--cream); border-color: var(--green); box-shadow: 0 14px 30px rgba(10,68,52,.28); }
+  .plan h3 { font-size: 21px; }
+  .plan .tag { display: inline-block; font-size: 13px; font-weight: 800; border-radius: 999px; padding: 3px 12px; margin-bottom: 10px; background: var(--mint); color: var(--mint-ink); }
+  .plan.best .tag { background: var(--cream); color: var(--green-deep); }
+  .plan .tag.value { background: #FBEFD9; color: #7A3A0B; }
+  .price { margin-top: 8px; font-size: 40px; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--green-soft); }
+  .plan.best .price { color: var(--cream); }
+  .price span { font-size: 17px; font-weight: 700; color: inherit; opacity: .85; }
+  .terms { font-size: 15px; font-weight: 700; margin-top: 4px; }
+  .was { font-size: 14.5px; color: var(--ink-soft); margin-top: 2px; }
+  .plan.best .was { color: rgba(251,245,230,.8); }
+  .plan ul { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 7px; font-size: 15.5px; }
+  .plan li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; }
+  .plan li::before { content: "✓"; font-weight: 800; color: var(--green-soft); }
+  .plan.best li::before { color: var(--cream); }
+  .plan li.no { color: var(--ink-soft); }
+  .plan li.no::before { content: "✕"; color: var(--ink-soft); }
+  .smallprint { margin-top: 16px; color: var(--ink-soft); font-size: 14.5px; }
+  .contact { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; background: var(--card); border: 1px solid var(--rim); border-radius: 18px; padding: 16px 20px; }
+  .contact b { font-size: 22px; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+  .contact .btn { font-size: 16px; padding: 11px 18px; min-height: 46px; box-shadow: 0 4px 0 var(--green-deep); }
+
   .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
   .fact { background: var(--card); border: 1px solid var(--rim); border-radius: 18px; padding: 16px 18px; }
   .fact small { color: var(--ink-soft); display: block; font-size: 14px; }
@@ -142,6 +170,7 @@
     .hero-phone { margin-top: 10px; }
     .grid { grid-template-columns: 1fr 1fr; }
     .install { grid-template-columns: 1fr; padding: 26px 20px; }
+    .plans { grid-template-columns: 1fr; }
     .facts { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
@@ -186,7 +215,7 @@
           <span data-l="en">Hishab PRO keeps your sales, stock, credit book and daily reports in one app. No internet? You keep selling.</span>
         </p>
         <div class="cta">
-          <a class="btn" id="dl-hero" href="https://github.com/arfin312-art/hishab-pro-releases/releases/latest/download/hishab-pro.apk">
+          <a class="btn" id="dl-hero" href="https://github.com/hishabpro/hishab-pro-releases/releases/latest/download/hishab-pro.apk">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16"/></svg>
             <span data-l="bn">অ্যাপ ডাউনলোড করুন</span><span data-l="en">Download the app</span>
           </a>
@@ -287,6 +316,72 @@
     </div>
   </section>
 
+  <section id="pricing" class="shots-band">
+    <div class="wrap">
+      <p class="eyebrow"><span data-l="bn">দাম</span><span data-l="en">Pricing</span></p>
+      <h2><span data-l="bn">তিনটি প্ল্যান, সব প্ল্যানে অ্যাপের সব ফিচার</span><span data-l="en">Three plans, and every plan has the whole app</span></h2>
+      <p class="offer">
+        <span data-l="bn">উদ্বোধনী অফার — সীমিত সময়ের জন্য</span><span data-l="en">Launch offer — for a limited time</span>
+        <small><span data-l="bn">এখনই নিলে কম দামে। অফার শেষ হলে দিতে হবে পুরো দাম।</span><span data-l="en">Join now at the lower price. When the offer ends, the full price applies.</span></small>
+      </p>
+      <div class="plans">
+        <div class="plan">
+          <h3><span data-l="bn">বেসিক</span><span data-l="en">Basic</span></h3>
+          <p class="price"><span data-l="bn">৳৩৯৯ <span>/মাস</span></span><span data-l="en">৳399 <span>/month</span></span></p>
+          <p class="terms"><span data-l="bn">কোনো চুক্তি নেই · প্রিন্টার ছাড়া</span><span data-l="en">No contract · no printer</span></p>
+          <p class="was"><span data-l="bn">অফার শেষে ৳৫৯৯</span><span data-l="en">৳599 after the offer</span></p>
+          <ul>
+            <li><span data-l="bn">অ্যাপের সব ফিচার</span><span data-l="en">Every feature of the app</span></li>
+            <li><span data-l="bn">রসিদ WhatsApp ও SMS-এ পাঠান</span><span data-l="en">Send receipts by WhatsApp and SMS</span></li>
+            <li><span data-l="bn">দোকানে এসে ফ্রি সেটআপ ও শেখানো</span><span data-l="en">Free setup and training at your shop</span></li>
+            <li><span data-l="bn">ফোন ও WhatsApp-এ সাপোর্ট</span><span data-l="en">Support by phone and WhatsApp</span></li>
+            <li><span data-l="bn">পরের পেমেন্টের আগে জানালেই বন্ধ</span><span data-l="en">Stop any time: tell us before the next payment</span></li>
+            <li class="no"><span data-l="bn">রসিদ প্রিন্টার নেই</span><span data-l="en">No receipt printer</span></li>
+          </ul>
+        </div>
+        <div class="plan best">
+          <span class="tag"><span data-l="bn">সবচেয়ে জনপ্রিয়</span><span data-l="en">Most popular</span></span>
+          <h3><span data-l="bn">প্রো</span><span data-l="en">Pro</span></h3>
+          <p class="price"><span data-l="bn">৳৫৯৯ <span>/মাস</span></span><span data-l="en">৳599 <span>/month</span></span></p>
+          <p class="terms"><span data-l="bn">১২ মাসের চুক্তি · রসিদ প্রিন্টার ফ্রি</span><span data-l="en">12-month contract · receipt printer free</span></p>
+          <p class="was"><span data-l="bn">অফার শেষে ৳৯৯৯</span><span data-l="en">৳999 after the offer</span></p>
+          <ul>
+            <li><span data-l="bn">বেসিকের সব কিছু</span><span data-l="en">Everything in Basic</span></li>
+            <li><span data-l="bn">ব্লুটুথ রসিদ প্রিন্টার (৫৮ মিমি)</span><span data-l="en">Bluetooth receipt printer (58 mm)</span></li>
+            <li><span data-l="bn">দোকানের নামসহ প্রিন্ট করা রসিদ</span><span data-l="en">Printed receipts with your shop's name</span></li>
+            <li><span data-l="bn">প্রিন্টার সেটআপ ও ২টি রোল ফ্রি</span><span data-l="en">Printer setup and 2 paper rolls free</span></li>
+            <li><span data-l="bn">চুক্তির মধ্যে প্রিন্টার নষ্ট হলে বদলে দেব</span><span data-l="en">We replace the printer if it fails during the contract</span></li>
+            <li><span data-l="bn">১২টি পেমেন্টের পর প্রিন্টার আপনার</span><span data-l="en">The printer is yours after 12 payments</span></li>
+          </ul>
+        </div>
+        <div class="plan">
+          <span class="tag value"><span data-l="bn">সবচেয়ে সাশ্রয়ী</span><span data-l="en">Best value</span></span>
+          <h3><span data-l="bn">প্রো বার্ষিক</span><span data-l="en">Pro Annual</span></h3>
+          <p class="price"><span data-l="bn">৳৬,৪৯৯ <span>/বছর</span></span><span data-l="en">৳6,499 <span>/year</span></span></p>
+          <p class="terms"><span data-l="bn">বছরে একবার পেমেন্ট · ৳৬৮৯ সাশ্রয়</span><span data-l="en">One payment a year · save ৳689</span></p>
+          <p class="was"><span data-l="bn">অফার শেষে ৳১০,৯৯৯</span><span data-l="en">৳10,999 after the offer</span></p>
+          <ul>
+            <li><span data-l="bn">প্রো-র সব কিছু</span><span data-l="en">Everything in Pro</span></li>
+            <li><span data-l="bn">প্রিন্টার প্রথম দিন থেকেই আপনার</span><span data-l="en">The printer is yours from day one</span></li>
+            <li><span data-l="bn">মাসিক প্রো-র চেয়ে প্রায় ১ মাস ফ্রি</span><span data-l="en">About 1 month free compared with monthly Pro</span></li>
+            <li><span data-l="bn">প্রথম ৩ মাস প্রিন্টার বদলের নিশ্চয়তা</span><span data-l="en">Printer replacement guaranteed for the first 3 months</span></li>
+            <li><span data-l="bn">সারা বছর পেমেন্টের ঝামেলা নেই</span><span data-l="en">No payments to think about all year</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="smallprint">
+        <span data-l="bn">উদ্বোধনী দামে নিলে চুক্তির ১২ মাস এই দামই থাকবে। প্রিন্টের ফিচারে প্রিন্টার লাগবে; কাগজের রোল আলাদা কিনতে হয়। টাকা শুধু অ্যাপে দেখানো অফিসিয়াল নম্বরে দিন, প্রতিনিধির হাতে নগদ নয়।</span>
+        <span data-l="en">Join at the launch price and it stays for the 12 months of the contract. Printing needs a printer; paper rolls are bought separately. Pay only to the official number shown in the app, never in cash to a representative.</span>
+      </p>
+      <div class="contact">
+        <span><span data-l="bn">জানতে বা সাহায্য পেতে WhatsApp বা ফোন করুন</span><span data-l="en">Questions or help? WhatsApp or call</span></span>
+        <b><span data-l="bn">০১৯১৩-৪৫১৬২৪</span><span data-l="en">01913-451624</span></b>
+        <a class="btn green" href="tel:+8801913451624"><span data-l="bn">ফোন করুন</span><span data-l="en">Call</span></a>
+        <a class="btn green" href="https://wa.me/8801913451624"><span data-l="bn">WhatsApp</span><span data-l="en">WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
   <section id="download">
     <div class="wrap">
       <div class="install">
@@ -294,7 +389,7 @@
           <h2><span data-l="bn">ইনস্টল করবেন যেভাবে</span><span data-l="en">How to install</span></h2>
           <p class="sub"><span data-l="bn">অ্যাপটি এই ওয়েবসাইট থেকে সরাসরি নামাতে হয়, প্লে স্টোর থেকে নয়। তাই প্রথমবার ফোন একবার অনুমতি চাইবে।</span><span data-l="en">The app comes straight from this website, not the Play Store, so your phone asks for permission once.</span></p>
           <div class="cta">
-            <a class="btn" id="dl-main" href="https://github.com/arfin312-art/hishab-pro-releases/releases/latest/download/hishab-pro.apk">
+            <a class="btn" id="dl-main" href="https://github.com/hishabpro/hishab-pro-releases/releases/latest/download/hishab-pro.apk">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16"/></svg>
               <span data-l="bn">APK ডাউনলোড করুন</span><span data-l="en">Download the APK</span>
             </a>
@@ -325,7 +420,7 @@
 <footer>
   <div class="wrap">
     <span><span data-l="bn">হিসাব প্রো — বাংলাদেশের দোকানের জন্য তৈরি।</span><span data-l="en">Hishab PRO — made for shops in Bangladesh.</span></span>
-    <a href="https://github.com/arfin312-art/hishab-pro-releases/releases"><span data-l="bn">সব সংস্করণ</span><span data-l="en">All versions</span></a>
+    <a href="https://github.com/hishabpro/hishab-pro-releases/releases"><span data-l="bn">সব সংস্করণ</span><span data-l="en">All versions</span></a>
   </div>
 </footer>
 
@@ -380,7 +475,7 @@
 
   // The newest release, for the version, date and size on the page. The
   // download buttons do not depend on it: they already point at the latest.
-  fetch('https://api.github.com/repos/arfin312-art/hishab-pro-releases/releases/latest')
+  fetch('https://api.github.com/repos/hishabpro/hishab-pro-releases/releases/latest')
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (j) {
       if (!j || !j.tag_name) return;
