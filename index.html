@@ -84,6 +84,7 @@
   .meta b { color: var(--cream); font-weight: 700; }
   .hero-points { margin: 26px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
   .hero-points li { background: rgba(251,245,230,.12); border: 1px solid rgba(251,245,230,.22); border-radius: 999px; padding: 6px 14px; font-size: 14.5px; font-weight: 500; }
+  .hero-points li.free-chip { background: var(--cream); color: var(--green-deep); border-color: var(--cream); font-weight: 700; }
   .hero-phone { align-self: end; justify-self: center; width: min(300px, 78vw); margin-bottom: -70px; }
 
   .phone { background: #0B1120; border-radius: 34px; padding: 9px; box-shadow: 0 24px 50px rgba(4,30,22,.45); }
@@ -132,6 +133,9 @@
 
   /* ---- pricing ---- */
   .offer { margin-top: 22px; background: #FBEFD9; border: 1px solid #F1D6A6; color: #7A3A0B; border-radius: 18px; padding: 14px 18px; font-weight: 700; }
+  .free { margin-top: 22px; background: var(--green); color: var(--cream); border-radius: 18px; padding: 16px 18px; font-weight: 700; font-size: 19px; }
+  .free small { display: block; font-weight: 400; font-size: 15px; margin-top: 4px; color: rgba(251,245,230,.9); }
+  .free + .offer { margin-top: 12px; }
   .offer small { display: block; font-weight: 400; font-size: 15px; margin-top: 2px; }
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; align-items: start; }
   .plan { background: var(--card); border: 1px solid var(--rim); border-radius: var(--radius); padding: 22px; position: relative; }
@@ -225,6 +229,7 @@
           </p>
         </div>
         <ul class="hero-points">
+          <li class="free-chip"><span data-l="bn">প্রথম মাস সম্পূর্ণ ফ্রি</span><span data-l="en">First month completely free</span></li>
           <li><span data-l="bn">ইন্টারনেট ছাড়াও চলে</span><span data-l="en">Works offline</span></li>
           <li><span data-l="bn">বাংলা ও ইংরেজি</span><span data-l="en">Bangla and English</span></li>
           <li><span data-l="bn">৭ ধরনের দোকান</span><span data-l="en">7 kinds of shop</span></li>
@@ -320,6 +325,10 @@
     <div class="wrap">
       <p class="eyebrow"><span data-l="bn">দাম</span><span data-l="en">Pricing</span></p>
       <h2><span data-l="bn">তিনটি প্ল্যান, সব প্ল্যানে অ্যাপের সব ফিচার</span><span data-l="en">Three plans, and every plan has the whole app</span></h2>
+      <p class="free" id="free-month">
+        <span data-l="bn">প্রথম মাস সম্পূর্ণ ফ্রি</span><span data-l="en">First month completely free</span>
+        <small><span data-l="bn">অ্যাপ ইনস্টল করে পেমেন্ট পাতায় “ফ্রি মাস শুরু করুন” চাপুন — ৩০ দিন পুরো অ্যাপ, এখন কোনো টাকা লাগবে না। ভালো লাগলে পরে একটি প্ল্যান নিন। নতুন দোকানের জন্য, একবার।</span><span data-l="en">Install the app and tap “Start my free month” on the payment screen — 30 days of the whole app, nothing to pay now. If you like it, choose a plan later. For new shops, once.</span></small>
+      </p>
       <p class="offer">
         <span data-l="bn">উদ্বোধনী অফার — সীমিত সময়ের জন্য</span><span data-l="en">Launch offer — for a limited time</span>
         <small><span data-l="bn">এখনই নিলে কম দামে। অফার শেষ হলে দিতে হবে পুরো দাম।</span><span data-l="en">Join now at the lower price. When the offer ends, the full price applies.</span></small>
